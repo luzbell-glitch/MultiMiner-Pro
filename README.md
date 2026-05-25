@@ -23,7 +23,7 @@ MultiMiner Pro evalúa constantemente el rendimiento de tu equipo y la demanda d
 Para empezar a minar con MultiMiner Pro en tu sistema Linux de 64 bits, sigue estos sencillos pasos:
 
 1.  **Descarga el Binario**: Haz clic en el siguiente enlace para descargar la última versión del minero:
-    [**Descargar MultiMiner Pro para Linux (x64)**](https://github.com/luzbell-glitch/MultiMiner-Pro/releases/latest/download/github_release.zip)
+    [**Descargar MultiMiner Pro para Linux (x64)**](https://github.com/luzbell-glitch/MultiMiner-Pro/releases/latest/download/MultiMiner-Pro-v1.1.0.zip)
     *(Nota: Este enlace es un marcador de posición. Deberás subir el binario a las "Releases" de GitHub y actualizar este enlace.)*
 
 2.  **Descomprime el Archivo**: Abre una terminal y navega hasta la carpeta donde descargaste el archivo. Luego, descomprímelo:
@@ -32,50 +32,19 @@ Para empezar a minar con MultiMiner Pro en tu sistema Linux de 64 bits, sigue es
     cd MultiMiner-Pro
     ```
 
-3.  **Configura tus Billeteras**: Abre el archivo `config.json` que viene incluido con el minero en un editor de texto. Reemplaza los marcadores de posición (`TU_BILLETERA_MONERO`, `TU_BILLETERA_RAVENCOIN`, `TU_BILLETERA_LITECOIN`) con tus direcciones de billetera reales para cada moneda.
+3.  **Inicia el Minado con un Solo Comando**: ¡Es así de fácil! Solo tienes que ejecutar el script `run.sh` pasando tus tres billeteras como argumentos:
 
-    ```json
-    {
-        "autosave": true,
-        "cpu": true,
-        "opencl": true,
-        "cuda": true,
-        "pools": [
-            {
-                "algo": "rx/0",
-                "coin": "monero",
-                "url": "pool.hashvault.pro:443",
-                "user": "TU_BILLETERA_MONERO",
-                "pass": "x",
-                "tls": true,
-                "priority": 1
-            },
-            {
-                "algo": "kawpow",
-                "coin": "ravencoin",
-                "url": "stratum+tcp://rvn.2miners.com:6060",
-                "user": "TU_BILLETERA_RAVENCOIN",
-                "pass": "x",
-                "priority": 2
-            },
-            {
-                "algo": "scrypt",
-                "coin": "litecoin",
-                "url": "stratum+tcp://ltc.viabtc.com:3333",
-                "user": "TU_BILLETERA_LITECOIN",
-                "pass": "x",
-                "priority": 3
-            }
-        ],
-        "donate-level": 0, // La comisión del desarrollador está integrada y no es configurable por el usuario.
-        "donate-over-proxy": 0
-    }
-    ```
-
-4.  **Ejecuta el Minero**: Desde la terminal, ejecuta el minero:
     ```bash
-    ./xmrig
+    chmod +x run.sh
+    ./run.sh <TU_BILLETERA_MONERO> <TU_BILLETERA_RAVENCOIN> <TU_BILLETERA_LITECOIN>
     ```
+
+    **Ejemplo Real:**
+    ```bash
+    ./run.sh 48933... RNNUn... ltc1q...
+    ```
+
+    El script configurará automáticamente todo y comenzará a minar las tres monedas al instante, aprovechando toda tu potencia de cálculo.
 
 ¡Y listo! MultiMiner Pro comenzará a trabajar, optimizando tu minado de Monero, Ravencoin y Litecoin.
 
